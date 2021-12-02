@@ -1,0 +1,21 @@
+import static sun.jvmstat.monitor.MonitoredVmUtil.mainClass
+import static sun.jvmstat.monitor.MonitoredVmUtil.mainClass
+
+plugins {
+    id 'java'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'betternet.Main'
+    }
+}
+
+group 'com.volmit'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+

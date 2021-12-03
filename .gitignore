@@ -1,0 +1,10 @@
+
+.idea/
+
+*.bin
+
+.gradle/7.1/executionHistory/
+
+.gradle/7.1/fileHashes/
+
+build/tmp/jar/

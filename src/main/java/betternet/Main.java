@@ -33,8 +33,8 @@ public class Main {
 
 
         } else {
-            System.out.println("For Servers, '-server -port=8123'");
-            System.out.println("For Clients, '-client -address=localhost -port=8123'");
+            System.out.println("For Servers, 'java -jar JarfileHere.jar -server -port=8123'");
+            System.out.println("For Clients, 'java -jar JarfileHere.jar -client -address=localhost -port=8123'");
 
         }
 

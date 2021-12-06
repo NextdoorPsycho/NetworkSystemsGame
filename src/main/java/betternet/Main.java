@@ -39,9 +39,10 @@ public class Main {
         }
 
     }
-     public static void clear(){
-        for (int i = 00; i < 64; i++) {
+
+    public static void clear() {
+        for (int i = 0; i < 64; i++) {
             System.out.println();
         }
-     }
+    }
 }

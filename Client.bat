@@ -1,2 +1,3 @@
 @echo off
-java -jar build\libs\TTCClient-1.0-SNAPSHOT.jar -client -address=localhost -port=8123
+java -jar C:\Users\brianfopiano\Desktop\RemoteGit\NetworkSystemsGame\build\libs\game.jar  -client -address=localhost -port=8123
+pause

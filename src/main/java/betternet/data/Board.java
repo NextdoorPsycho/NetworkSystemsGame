@@ -10,16 +10,14 @@ public class Board {
     public static final Boolean X = true;
     public static final Boolean O = false;
     public static final Boardline[] winningLines = {
-            new Boardline(0,0, 1,0, 2,0),
-            new Boardline(0,1, 1,1, 2,1),
-            new Boardline(0,2, 1,2, 2,2),
-
-            new Boardline(0,0, 0,1, 0,2),
-            new Boardline(1,0, 1,1, 1,2),
-            new Boardline(2,0, 2,1, 2,2),
-
-            new Boardline(0,0,  1,1, 2,2),
-            new Boardline(2,0, 1,1, 0,2),
+            new Boardline(0, 0, 1, 0, 2, 0),
+            new Boardline(0, 1, 1, 1, 2, 1),
+            new Boardline(0, 2, 1, 2, 2, 2),
+            new Boardline(0, 0, 0, 1, 0, 2),
+            new Boardline(1, 0, 1, 1, 1, 2),
+            new Boardline(2, 0, 2, 1, 2, 2),
+            new Boardline(0, 0, 1, 1, 2, 2),
+            new Boardline(2, 0, 1, 1, 0, 2),
 
 
     };
@@ -28,6 +26,7 @@ public class Board {
     public Board() {
         this(new Boolean[9]);
     }
+
     public Board(Boolean[] board) {
         this.board = board;
     }
@@ -67,20 +66,20 @@ public class Board {
     }
 
     public boolean isEmpty(int x, int y) {
-        return get(x,y) == null;
+        return get(x, y) == null;
     }
 
-    public char render(int x, int y){
-        return isEmpty(x,y) ? '-' : isX(x,y) ? 'X' : 'O';
+    public char render(int x, int y) {
+        return isEmpty(x, y) ? '-' : isX(x, y) ? 'X' : 'O';
     }
 
-    public void render(){
+    public void render() {
         StringBuilder row = new StringBuilder();
 
-        for(int i = 0 ; i<3 ; i++){
+        for (int i = 0; i < 3; i++) {
 
-            for(int j = 0 ; j<3 ; j++){
-              row.append(render(j,i));
+            for (int j = 0; j < 3; j++) {
+                row.append(render(j, i));
 
             }
             System.out.println(row);
@@ -90,16 +89,16 @@ public class Board {
     }
 
     public void write(DataOutputStream dos) throws IOException {
-        for(int i = 0; i<board.length ; i++){
+        for (int i = 0; i < board.length; i++) {
             dos.writeByte(board[i] == null ? 0 : board[i] ? 1 : 2);
         }
     }
 
     public static Board read(DataInputStream din) throws IOException {
         Boolean[] board = new Boolean[9];
-        for(int i = 0; i<board.length ; i++){
+        for (int i = 0; i < board.length; i++) {
             byte b = din.readByte();
-            if(b==0){
+            if (b == 0) {
                 continue;
             }
             board[i] = b == 1;
@@ -107,10 +106,10 @@ public class Board {
         return new Board(board);
     }
 
-    public Boolean getWinner(){
-        for (Boardline i : winningLines){
+    public Boolean getWinner() {
+        for (Boardline i : winningLines) {
             Boolean w = i.getWinner(this);
-            if (w != null){
+            if (w != null) {
                 return w;
             }
         }
